@@ -5,9 +5,9 @@ class Common
 {
   public:
     Common(int serial);
-    void log(char* input);
+    void intToBinDigit(unsigned int in, int count, int* out);
+    void printIntArray(int* array, int count);
   private:
 };
 
 #endif
-

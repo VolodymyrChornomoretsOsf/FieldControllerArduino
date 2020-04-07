@@ -1,19 +1,19 @@
 #include <Arduino.h>
-#include <Morse.h>
 #include <Common.h>
 
 #define SERIAL_CONST 9600
 
-Common common(SERIAL_CONST);
+Common common = Common(SERIAL_CONST);
 
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(SERIAL_CONST);
   // put your setup code here, to run once:
 }
 
 void loop() {
-  Serial.println(9600);
-  //common.log("text");
-  // put your main code here, to run repeatedly:
+  int n = 4;
+  int digit[n];
+  common.intToBinDigit(9, 4, digit);
+  common.printIntArray(digit, n);
 }

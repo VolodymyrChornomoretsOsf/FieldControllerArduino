@@ -4,11 +4,22 @@
 
 Common::Common(int serial)
 {
-  Serial.begin(serial);
 }
 
-void Common::log(char* input)
+void Common::intToBinDigit(unsigned int in, int count, int* out)
 {
-  Serial.println(input);
+  unsigned int mask = 1U << (count - 1);
+  int i;
+  for (i = 0; i < count; i++) {
+    out[i] = (in & mask) ? 1 : 0;
+    in <<= 1;
+  }
 }
 
+void Common::printIntArray(int* array, int count)
+{
+  for(int i = 0; i < count; i++){
+    Serial.print(array[i]);
+  }
+  Serial.print("\n");
+}
